@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dqobclqg7l1sd"]
+
+[ext_resource type="PackedScene" uid="uid://bbjrbeywki2wy" path="res://env_box.tscn" id="1_pq8q7"]
+[ext_resource type="PackedScene" uid="uid://dwm5edr713qmb" path="res://CharacterController/CharacterController.tscn" id="2_pyidc"]
+[ext_resource type="PackedScene" uid="uid://bffx15vj7updp" path="res://Interactables/interactable.tscn" id="3_vvh5c"]
+
+[node name="Root" type="Node2D" unique_id=1155602987]
+
+[node name="EnvBox" parent="." unique_id=41432814 instance=ExtResource("1_pq8q7")]
+position = Vector2(450, 658)
+scale = Vector2(11.180002, 1)
+
+[node name="EnvBox2" parent="." unique_id=1678620311 instance=ExtResource("1_pq8q7")]
+position = Vector2(824, 489)
+scale = Vector2(2, 1)
+
+[node name="CharacterController" parent="." unique_id=201973950 instance=ExtResource("2_pyidc")]
+position = Vector2(134, 348)
+maxSpeed = 4000.0
+groundAccel = 40.0
+airAccel = 20.0
+groundDeccel = 100.0
+airDeccel = 10.0
+activeGroundDeccel = 200.0
+activeAirDeccel = 50.0
+overspeedGroundDeccel = 400.0
+overspeedAirDeccel = 200.0
+useGravityOveride = true
+gravityOveride = Vector2(0, 50)
+fallingMult = 1.5
+maxJump = 1250.0
+minJump = 750.0
+maxHeightHold = 15
+jumpBuffer = 5
+
+[node name="Interactable2" parent="." unique_id=23908583 instance=ExtResource("3_vvh5c")]
+position = Vector2(855, 351)
+scale = Vector2(4.42, 1)
+popupText = ":("
+
+[node name="Interactable" parent="." unique_id=1091946643 instance=ExtResource("3_vvh5c")]
+position = Vector2(770, 347)
+popupText = "hmmm :)"

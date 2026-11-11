@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bffx15vj7updp"]
+
+[ext_resource type="Script" uid="uid://be6kgesyl1kbl" path="res://Interactables/Interactable.gd" id="1_d0nxx"]
+[ext_resource type="Texture2D" uid="uid://nxwv0j45t111" path="res://icon.svg" id="1_d4i6k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2m5a4"]
+radius = 64.0
+
+[node name="Interactable" type="Node2D" unique_id=1091946643 node_paths=PackedStringArray("popupTextLabel", "sprite") groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_d0nxx")
+popupText = "hmmm?"
+popupTextLabel = NodePath("PopupLabel")
+sprite = NodePath("Sprite2D")
+showText = true
+highlightText = "TESTING"
+grow = true
+growFrames = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1285229520]
+texture = ExtResource("1_d4i6k")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=657837795]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=25827127]
+shape = SubResource("CircleShape2D_2m5a4")
+
+[node name="PopupLabel" type="Label" parent="." unique_id=1595026932]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = -75.0
+horizontal_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dwm5edr713qmb"]
+
+[ext_resource type="Script" uid="uid://c61iq7qhm24w2" path="res://CharacterController/character_controller.gd" id="1_sbkfr"]
+[ext_resource type="Texture2D" uid="uid://nxwv0j45t111" path="res://icon.svg" id="2_5o8gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edg1g"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2m5a4"]
+radius = 32.0
+
+[node name="CharacterController" type="CharacterBody2D" unique_id=201973950 node_paths=PackedStringArray("generalArea", "interactText")]
+script = ExtResource("1_sbkfr")
+maxSpeed = 100.0
+groundAccel = 10.0
+airAccel = 5.0
+groundDeccel = 25.0
+airDeccel = 1.0
+activeGroundDeccel = 50.0
+activeAirDeccel = 20.0
+generalArea = NodePath("GeneralArea")
+interactText = NodePath("Control/InteractText")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=264088627]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5o8gx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368424839]
+shape = SubResource("RectangleShape2D_edg1g")
+
+[node name="GeneralArea" type="Area2D" parent="." unique_id=103272862]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeneralArea" unique_id=893158040]
+shape = SubResource("CircleShape2D_2m5a4")
+
+[node name="Control" type="Control" parent="." unique_id=222953049]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InteractText" type="Label" parent="Control" unique_id=1598227227]
+layout_mode = 0
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -37.0
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="GeneralArea" to="." method="genAreaEntered_Area"]
+[connection signal="area_exited" from="GeneralArea" to="." method="genAreaExited_Area"]
