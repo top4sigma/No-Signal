@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1nfyibu4ycvb"]
+
+[ext_resource type="Script" uid="uid://d2hvjaiuy2gao" path="res://DebugStuff/TestSceneLoader/test_scene_loader.gd" id="1_7y47m"]
+
+[node name="TestSceneLoader" type="Node2D" unique_id=1921066398]
+script = ExtResource("1_7y47m")
+
+[node name="Control" type="Control" parent="." unique_id=730527030]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=872336695]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 97.0
+offset_right = 461.0
+offset_bottom = 137.0
