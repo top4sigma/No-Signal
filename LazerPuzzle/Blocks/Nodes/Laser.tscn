@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://xyp2bj356dlg"]
+
+[ext_resource type="Script" uid="uid://bxl2rn2x0rjo0" path="res://LazerPuzzle/Blocks/Scripts/laser.gd" id="1_ejyb8"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_opo2a"]
+b = Vector2(2000, 0)
+
+[sub_resource type="Curve" id="Curve_g4v7s"]
+_data = [Vector2(0.16242334, 0.3094238), 0.0, 0.0, 0, 0, Vector2(0.38989037, 0.6207554), 0.0, 0.0, 0, 0, Vector2(0.72886086, 0.538344), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_ejyb8"]
+offsets = PackedFloat32Array(0.15006511, 0.70735675, 0.88964844)
+colors = PackedColorArray(0.6344401, 0.6344401, 0.6344401, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Laser" type="Node2D" unique_id=1801881909]
+script = ExtResource("1_ejyb8")
+
+[node name="Area" type="Area2D" parent="." unique_id=159059798]
+collision_layer = 512
+collision_mask = 0
+
+[node name="Ray" type="RayCast2D" parent="Area" unique_id=114051153]
+target_position = Vector2(2000, 0)
+collision_mask = 513
+collide_with_areas = true
+
+[node name="AreaShape" type="CollisionShape2D" parent="Area" unique_id=1208042096]
+shape = SubResource("SegmentShape2D_opo2a")
+
+[node name="Line" type="Line2D" parent="." unique_id=1729203267]
+position = Vector2(0, 1)
+points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="LaserEnd" type="Node2D" parent="." unique_id=2000914081]
+
+[node name="EndParticles" type="CPUParticles2D" parent="LaserEnd" unique_id=1311292891]
+amount = 100
+lifetime = 0.25
+spread = 180.0
+gravity = Vector2(0, 15)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+damping_max = 10.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_g4v7s")
+color_ramp = SubResource("Gradient_ejyb8")

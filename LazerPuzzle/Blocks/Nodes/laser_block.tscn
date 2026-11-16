@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://deqhoon1sy1c4"]
+
+[ext_resource type="Script" uid="uid://euw7qsbtd2u1" path="res://LazerPuzzle/Blocks/Scripts/laser_block.gd" id="1_rfhc7"]
+[ext_resource type="Texture2D" uid="uid://c8wgbe6stf5t7" path="res://LazerPuzzle/Blocks/Sprites/LazerBlock.png" id="3_e2x0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(50, 50)
+
+[node name="LaserBlock" type="Node2D" unique_id=675301806]
+script = ExtResource("1_rfhc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1444243037]
+texture_filter = 1
+rotation = 3.1415927
+texture = ExtResource("3_e2x0o")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=932900164]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=765769396]
+shape = SubResource("RectangleShape2D_g4v7s")
