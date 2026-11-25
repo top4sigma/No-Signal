@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kmdcjg35plpg"]
+
+[ext_resource type="Script" uid="uid://dhyqgvnw0nq77" path="res://LazerPuzzle/RepeaterPlacer/repeater_placer.gd" id="1_w536r"]
+[ext_resource type="Texture2D" uid="uid://07wl6heu0shv" path="res://LazerPuzzle/Blocks/Sprites/Repeater.png" id="2_qhr66"]
+
+[node name="RepeaterPlacer" type="Node2D" unique_id=723514083 node_paths=PackedStringArray("outlineNode", "mouseFollowParent")]
+script = ExtResource("1_w536r")
+outlineNode = NodePath("MouseFollowParent/RepeaterOutline")
+mouseFollowParent = NodePath("MouseFollowParent")
+
+[node name="MouseFollowParent" type="Control" parent="." unique_id=888171758]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RepeaterOutline" type="TextureRect" parent="MouseFollowParent" unique_id=762120509]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = -20.5
+offset_top = -10.5
+offset_right = 20.5
+offset_bottom = 41.5
+texture = ExtResource("2_qhr66")

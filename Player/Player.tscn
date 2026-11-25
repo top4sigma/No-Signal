@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwm5edr713qmb"]
 
-[ext_resource type="Script" uid="uid://c61iq7qhm24w2" path="res://CharacterController/character_controller.gd" id="1_sbkfr"]
-[ext_resource type="Texture2D" uid="uid://nxwv0j45t111" path="res://icon.svg" id="2_5o8gx"]
+[ext_resource type="Script" uid="uid://c61iq7qhm24w2" path="res://Player/Player.gd" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://nxwv0j45t111" path="res://icon.svg" id="2_tok1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edg1g"]
 size = Vector2(64, 64)
@@ -9,22 +9,31 @@ size = Vector2(64, 64)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m5a4"]
 radius = 32.0
 
-[node name="CharacterController" type="CharacterBody2D" unique_id=201973950 node_paths=PackedStringArray("generalArea", "interactText")]
-collision_layer = 514
-script = ExtResource("1_sbkfr")
-maxSpeed = 100.0
-groundAccel = 10.0
-airAccel = 5.0
-groundDeccel = 25.0
-airDeccel = 1.0
-activeGroundDeccel = 50.0
-activeAirDeccel = 20.0
+[node name="Player" type="CharacterBody2D" unique_id=201973950 node_paths=PackedStringArray("generalArea", "interactText")]
+collision_layer = 2
+script = ExtResource("1_q3lat")
+maxSpeed = 650.0
+groundAccel = 50.0
+airAccel = 20.0
+groundDeccel = 100.0
+airDeccel = 10.0
+activeGroundDeccel = 200.0
+activeAirDeccel = 50.0
+overspeedGroundDeccel = 400.0
+overspeedAirDeccel = 200.0
+useGravityOveride = true
+gravityOveride = Vector2(0, 50)
+fallingMult = 1.5
+maxJump = 1250.0
+minJump = 750.0
+maxHeightHold = 15
+jumpBuffer = 3
 generalArea = NodePath("GeneralArea")
 interactText = NodePath("Control/InteractText")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=264088627]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5o8gx")
+texture = ExtResource("2_tok1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368424839]
 shape = SubResource("RectangleShape2D_edg1g")

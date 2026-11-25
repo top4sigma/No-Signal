@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bk7mnbuuq17de"]
+
+[ext_resource type="Script" uid="uid://d3mp8mqljju25" path="res://ForLater/LevelScr.gd" id="1_aajek"]
+[ext_resource type="PackedScene" uid="uid://bbjrbeywki2wy" path="res://env_box.tscn" id="1_pyfw7"]
+[ext_resource type="PackedScene" uid="uid://dwm5edr713qmb" path="res://Player/Player.tscn" id="2_aajek"]
+
+[node name="TestLevel" type="Node2D" unique_id=1910349549]
+script = ExtResource("1_aajek")
+
+[node name="EnvBox" parent="." unique_id=41432814 instance=ExtResource("1_pyfw7")]
+position = Vector2(450, 658)
+scale = Vector2(11.180002, 1)
+
+[node name="EnvBox2" parent="." unique_id=449681020 instance=ExtResource("1_pyfw7")]
+position = Vector2(824, 489)
+scale = Vector2(2, 1)
+
+[node name="CharacterController" parent="." unique_id=201973950 instance=ExtResource("2_aajek")]
+position = Vector2(446, 423)
+maxSpeed = 4000.0
+groundAccel = 40.0
