@@ -14,8 +14,12 @@ func _process(delta: float) -> void:
 	pass
 func updateAllLasers():
 	for i in allLasers:
-		i.updateLaser()
-		await get_tree().process_frame
+		if i:
+			i.updateLaser()
+			await get_tree().process_frame
 	if allLasers.size() == 0:
 		await get_tree().process_frame
 	updateAllLasers()
+func removeLaser(laser:Laser):
+	if allLasers.find(laser):
+		allLasers.remove_at(allLasers.find(laser))

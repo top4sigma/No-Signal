@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://kd2dfdg5148i"]
+
+[ext_resource type="Script" uid="uid://b3hb5uiynelqg" path="res://LazerPuzzle/Blocks/Scripts/door.gd" id="1_0bnnf"]
+[ext_resource type="Texture2D" uid="uid://w0dridnrvxxj" path="res://LazerPuzzle/Blocks/Sprites/DoorFrame.png" id="2_2lbna"]
+[ext_resource type="Texture2D" uid="uid://qjdyftef07wm" path="res://LazerPuzzle/Blocks/Sprites/DoorInteror.png" id="3_k8fg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m5a4"]
+size = Vector2(20, 94)
+
+[node name="Door" type="Node2D" unique_id=942876811]
+script = ExtResource("1_0bnnf")
+
+[node name="OutlineSprite" type="TextureRect" parent="." unique_id=935167792]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -45.0
+offset_right = 8.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2lbna")
+
+[node name="InsideSprite" type="TextureRect" parent="." unique_id=250941973]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -45.0
+offset_right = 8.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k8fg1")
+
+[node name="StaticBody2D" type="AnimatableBody2D" parent="." unique_id=187819593]
+collision_layer = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=745755183]
+shape = SubResource("RectangleShape2D_2m5a4")

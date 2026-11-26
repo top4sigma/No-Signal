@@ -14,7 +14,7 @@ texture_filter = 1
 rotation = 3.1415927
 texture = ExtResource("3_e2x0o")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=932900164]
+[node name="AnimatableBody2D" type="Area2D" parent="." unique_id=1742080314]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=765769396]
 shape = SubResource("RectangleShape2D_g4v7s")

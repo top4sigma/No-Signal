@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://42hc1ijvpi2y"]
+
+[ext_resource type="Script" uid="uid://b1ty64t75ejtj" path="res://LazerPuzzle/Blocks/Scripts/activatable.gd" id="1_kdsds"]
+
+[node name="Activatable" type="Node2D" unique_id=2078373272]
+script = ExtResource("1_kdsds")

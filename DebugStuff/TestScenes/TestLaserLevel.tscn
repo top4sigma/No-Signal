@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://mm3ev2oqfpj3"]
+
+[ext_resource type="Script" uid="uid://dotbfc3fxfgk6" path="res://LazerPuzzle/Levels/LaserLevel.gd" id="1_ef58x"]
+[ext_resource type="PackedScene" uid="uid://bbjrbeywki2wy" path="res://env_box.tscn" id="2_44wbr"]
+[ext_resource type="PackedScene" uid="uid://kmdcjg35plpg" path="res://LazerPuzzle/RepeaterPlacer/repeater_placer.tscn" id="2_dp3lu"]
+[ext_resource type="PackedScene" uid="uid://dwm5edr713qmb" path="res://Player/Player.tscn" id="3_ef58x"]
+[ext_resource type="PackedScene" uid="uid://deqhoon1sy1c4" path="res://LazerPuzzle/Blocks/Nodes/laser_block.tscn" id="4_44wbr"]
+[ext_resource type="PackedScene" uid="uid://65sfm2cno7bg" path="res://LazerPuzzle/Blocks/Nodes/Sensor.tscn" id="7_evp7f"]
+[ext_resource type="PackedScene" uid="uid://kd2dfdg5148i" path="res://LazerPuzzle/Blocks/Nodes/Door.tscn" id="8_1bchv"]
+[ext_resource type="PackedScene" uid="uid://bw4nkbwsxqhdb" path="res://LazerPuzzle/Blocks/Nodes/moving_platform.tscn" id="8_h3y7x"]
+
+[node name="TestLaserLevel" type="Node2D" unique_id=1910349549]
+script = ExtResource("1_ef58x")
+
+[node name="RepeaterPlacer" parent="." unique_id=723514083 node_paths=PackedStringArray("player") instance=ExtResource("2_dp3lu")]
+player = NodePath("../CharacterController")
+
+[node name="EnvBox" parent="." unique_id=41432814 instance=ExtResource("2_44wbr")]
+position = Vector2(523, 659)
+scale = Vector2(11.180002, 1)
+
+[node name="CharacterController" parent="." unique_id=201973950 instance=ExtResource("3_ef58x")]
+position = Vector2(446, 423)
+
+[node name="LaserBlock" parent="." unique_id=675301806 instance=ExtResource("4_44wbr")]
+position = Vector2(52, 545)
+
+[node name="Sensor" parent="." unique_id=894706350 instance=ExtResource("7_evp7f")]
+position = Vector2(1126, 543)
+
+[node name="Sensor2" parent="." unique_id=580705592 instance=ExtResource("7_evp7f")]
+position = Vector2(1119, 318)
+
+[node name="Door" parent="." unique_id=942876811 node_paths=PackedStringArray("sensors") instance=ExtResource("8_1bchv")]
+position = Vector2(704, 540)
+sensors = [NodePath("../Sensor")]
+flipActivation = true
+
+[node name="MovingPlatform" parent="." unique_id=1261715721 node_paths=PackedStringArray("sensors") instance=ExtResource("8_h3y7x")]
+position = Vector2(157, 584)
+targetPos = Vector2(200, -200)
+moveFrames = 120
+sensors = [NodePath("../Sensor")]
+
+[node name="MovingPlatform2" parent="." unique_id=670070304 node_paths=PackedStringArray("sensors") instance=ExtResource("8_h3y7x")]
+position = Vector2(323, 581)
+targetPos = Vector2(0, -200)
+moveFrames = 120
+blocksLaser = true
+sensors = [NodePath("../Sensor2")]

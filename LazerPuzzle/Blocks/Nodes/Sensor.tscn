@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://65sfm2cno7bg"]
+
+[ext_resource type="Script" uid="uid://dboaae3vj8sk" path="res://LazerPuzzle/Blocks/Scripts/sensor.gd" id="1_mgngr"]
+[ext_resource type="Texture2D" uid="uid://u6yawfxo3whn" path="res://LazerPuzzle/Blocks/Sprites/Reciever.png" id="2_0dnfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dnfe"]
+size = Vector2(10, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgngr"]
+size = Vector2(20, 55)
+
+[node name="Sensor" type="Node2D" unique_id=894706350 node_paths=PackedStringArray("texture") groups=["LaserTarget"]]
+script = ExtResource("1_mgngr")
+texture = NodePath("Control")
+
+[node name="RayCollisionArea" type="Area2D" parent="." unique_id=439258418]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RayCollisionArea" unique_id=2089379586]
+rotation = -0.0027815255
+shape = SubResource("RectangleShape2D_0dnfe")
+
+[node name="MouseArea" type="Area2D" parent="." unique_id=701994212]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea" unique_id=1027125776]
+rotation = -0.0027815255
+shape = SubResource("RectangleShape2D_mgngr")
+
+[node name="Control" type="Control" parent="." unique_id=1671782105]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="Sprite2D" type="TextureRect" parent="Control" unique_id=1477218956]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -38.0
+offset_right = -15.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0dnfe")
+
+[connection signal="mouse_entered" from="MouseArea" to="." method="_on_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="MouseArea" to="." method="_on_mouse_area_mouse_exited"]

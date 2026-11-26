@@ -7,6 +7,8 @@ var rays:Array[Laser]
 @export var laserChanel = 0
 const LASER = preload("uid://xyp2bj356dlg")
 
+@export var rayParent:Node2D
+@export var rayOffset:Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -18,7 +20,7 @@ func _process(delta: float) -> void:
 func addTarget(target):
 	var newRay = LASER.instantiate()
 	newRay.laserChanel = laserChanel
-	add_child(newRay)
+	newRay.position = rayOffset
 	if target is Node2D:
 		newRay.target = target
 		targets.append(target)
@@ -31,5 +33,9 @@ func addTarget(target):
 		rays.append(newRay)
 	else:
 		return
+	if rayParent:
+		rayParent.add_child(newRay)
+	else:
+		add_child(newRay)
 	LaserInfo.allLasers.append(newRay)
 	

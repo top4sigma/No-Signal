@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+class_name Player
 @export_group("Movement")
 @export var maxSpeed:float
 #Speed increase per frame you are moving on the ground
@@ -49,7 +51,6 @@ extends CharacterBody2D
 @export_group("Nodes")
 @export var generalArea:Area2D
 @export var interactText:Label
-
 
 #	Interaction System
 #an Array of all the interactables in range

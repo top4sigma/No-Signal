@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cwetnd7s2bgnt"]
+
+[ext_resource type="Texture2D" uid="uid://07wl6heu0shv" path="res://LazerPuzzle/Blocks/Sprites/Repeater.png" id="1_pn41v"]
+[ext_resource type="Script" uid="uid://bxhf67jk5n63v" path="res://LazerPuzzle/Blocks/Scripts/repeater.gd" id="1_y7y6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(42, 52)
+
+[node name="Repeater" type="Node2D" unique_id=1122352595 node_paths=PackedStringArray("texture", "rayParent") groups=["LaserTarget"]]
+script = ExtResource("1_y7y6c")
+texture = NodePath("Texture")
+rayParent = NodePath("RayCollisionArea")
+
+[node name="Texture" type="TextureRect" parent="." unique_id=106582394]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -10.5
+offset_right = 20.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(20.5, 10.5)
+texture = ExtResource("1_pn41v")
+
+[node name="RayCollisionArea" type="Area2D" parent="." unique_id=283577248]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RayCollisionArea" unique_id=726065117]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="MouseArea" type="Area2D" parent="." unique_id=2067548742]
+position = Vector2(0, 42)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea" unique_id=506946838]
+position = Vector2(0, -26)
+rotation = -0.0027815255
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="mouse_entered" from="MouseArea" to="." method="_on_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="MouseArea" to="." method="_on_mouse_area_mouse_exited"]

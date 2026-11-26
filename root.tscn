@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dqobclqg7l1sd"]
 
-[ext_resource type="PackedScene" uid="uid://bk7mnbuuq17de" path="res://LazerPuzzle/Levels/Nodes/TestLevel.tscn" id="1_pq8q7"]
+[ext_resource type="PackedScene" uid="uid://bk7mnbuuq17de" path="res://DebugStuff/TestScenes/TestLevel.tscn" id="1_pq8q7"]
 [ext_resource type="PackedScene" uid="uid://1nfyibu4ycvb" path="res://DebugStuff/TestSceneLoader/TestSceneLoader.tscn" id="1_pyidc"]
+[ext_resource type="PackedScene" uid="uid://mm3ev2oqfpj3" path="res://DebugStuff/TestScenes/TestLaserLevel.tscn" id="3_vvh5c"]
 
 [node name="Root" type="Node2D" unique_id=1155602987]
 
 [node name="TestSceneLoader" parent="." unique_id=1921066398 instance=ExtResource("1_pyidc")]
-scenes = Array[PackedScene]([ExtResource("1_pq8q7")])
+rotation = 0.0026949444
+scenes = Array[PackedScene]([ExtResource("1_pq8q7"), ExtResource("3_vvh5c")])
