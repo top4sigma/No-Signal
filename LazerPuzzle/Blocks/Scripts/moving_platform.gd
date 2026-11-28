@@ -12,8 +12,7 @@ var topPos = false
 @onready var platform: AnimatableBody2D = $Platform
 
 @export_group("Other")
-#set the default texture as the sprite that dosent block the laser
-@export var blocksLaserSprite:CompressedTexture2D
+@export var blocksLaserSprite:CompressedTexture2D        # set the default texture as the sprite that dosent block the laser
 
 @export_group("Nodes")
 @export var textureRect:TextureRect
@@ -39,7 +38,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		platform.position.x = move_toward(platform.position.x,0,moveVector.x)
 		platform.position.y = move_toward(platform.position.y,0,moveVector.y)
+
 func activate():
 	topPos = true
+
 func deactivate():
 	topPos = false

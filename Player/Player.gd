@@ -3,10 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 @export_group("Movement")
-@export var maxSpeed: float
-# Fraction of the distance to target speed covered per second while moving on the ground
-@export var groundAccel: float
-# Fraction of the distance to target speed covered per second while moving in air
+@export var maxSpeed: float                  # Fraction of the distance to target speed covered per second while moving on the ground
+@export var groundAccel: float               # Fraction of the distance to target speed covered per second while moving in air
 @export var airAccel: float
 
 
@@ -15,23 +13,16 @@ class_name Player
 
 
 @export_group("Jump")
-# Shortest Jump
-@export var minJump: float = 10
-# Maximum seconds the jump can be held for
-@export var maxHeightHold: float = 0.2
-# Seconds your jump is buffered for
-@export var jumpBuffer: float = 0.15
-# Gravity multiplier while jump is held
-@export var holdGravityMult: float = 0.4
-# Remaining upward velocity kept when jump is released early
-@export var releaseVelocityCut: float = 0.4
+@export var minJump: float = 10                      # Shortest Jump
+@export var maxHeightHold: float = 0.2               # Maximum seconds the jump can be held for
+@export var jumpBuffer: float = 0.15                 # Seconds your jump is buffered for
+@export var holdGravityMult: float = 0.4             # Gravity multiplier while jump is held
+@export var releaseVelocityCut: float = 0.4          # Remaining upward velocity kept when jump is released early
 @export_subgroup("Squash And Stretch")
-@export var maxStretch: float = 2
-# Y velocity needed to reach maxStretch
+@export var maxStretch: float = 2                    # Y velocity needed to reach maxStretch
 @export var maxStretchSpeed: int = 100
 @export_group("Interaction")
-# The time it takes for an interactable popup text to fade in
-@export var interactableTextPopupTime: int = 10
+@export var interactableTextPopupTime: int = 10      # The time it takes for an interactable popup text to fade in
 
 @export_group("Nodes")
 @export var generalArea: Area2D
@@ -39,8 +30,7 @@ class_name Player
 
 
 #	------------------------------ Interaction System ------------------------------
-# an Array of all the interactables in range
-var interactablesInRange: Array[Node2D]
+var interactablesInRange: Array[Node2D]      # an Array of all the interactables in range
 var lastClosestInteractable = null
 
 
@@ -49,14 +39,10 @@ var respawnPoint: Vector2
 
 
 #	------------------------------ Movement ------------------------------
-# true right after you jump if you can still hold to go higher
-var holdingJump: bool = false
-# seconds you have been holding a jump for
-var currentJumpHold: float = 0.0
-# seconds since your last jump input, -1 means there is no active buffer
-var lastJumpInput: float = -1.0
-# if the player is walking side to side
-var walking: bool = false
+var holdingJump: bool = false       # true right after you jump if you can still hold to go higher
+var currentJumpHold: float = 0.0    # seconds you have been holding a jump for
+var lastJumpInput: float = -1.0     # seconds since your last jump input, -1 means there is no active buffer
+var walking: bool = false           # if the player is walking side to side
 
 
 func _ready() -> void:

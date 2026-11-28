@@ -1,6 +1,6 @@
 extends Node2D
-
 class_name LaserEmiter 
+
 var targets:Array[Node2D]
 var targetRays:Array[Laser]
 var rays:Array[Laser]
@@ -17,10 +17,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 func addTarget(target):
 	var newRay = LASER.instantiate()
+	
 	newRay.laserChanel = laserChanel
 	newRay.position = rayOffset
+	
 	if target is Node2D:
 		newRay.target = target
 		targets.append(target)
@@ -37,5 +40,6 @@ func addTarget(target):
 		rayParent.add_child(newRay)
 	else:
 		add_child(newRay)
+	
 	LaserInfo.allLasers.append(newRay)
 	
